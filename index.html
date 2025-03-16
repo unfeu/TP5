@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebForm</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #312e2f;
+            background-color: #ddd;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+
+        .intro {
+            margin-bottom: 30px;
+            text-align: justify;
+            padding: 15px;
+            background-color: #f3c7e3;
+            border-radius: 4px;
+        }
+
+        form {
+            display: block;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="email"]:valid {
+            border-color: #ddd;
+        }
+
+        input[type="email"]:invalid:not(:placeholder-shown) {
+            border-color: #ff0000;
+        }
+
+        button[type="submit"] {
+            background-color: #df68bc;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            display: block;
+            margin: 0 auto;
+            min-width: 200px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #c456a0;
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: block;
+        }
+
+        .radio-option,
+        .checkbox-option {
+            display: block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz sur HTML et CSS</h1>
+
+        <div class="intro">
+            <p>Bienvenue à ce quiz sur les langages HTML et CSS ! Ce questionnaire a pour but d'évaluer vos connaissances sur ces deux langages fondamentaux du développement web. Répondez aux questions ci-dessous en utilisant vos connaissances actuelles. Les résultats vous aideront à identifier vos points forts et les domaines à améliorer.</p>
+        </div>
+
+        <form action="traitement.php" method="post">
+            <fieldset>
+                <legend>Identification</legend>
+
+                <div class="form-group">
+                    <label for="nom" class="required">Nom</label>
+                    <input type="text" id="nom" name="nom" placeholder="Entrez votre nom de famille" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="prenom" class="required">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="required">Adresse email</label>
+                    <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required>
+                    <p class="note">Veuillez entrer une adresse email valide.</p>
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="date_quiz" class="required">Date du quiz</label>
+                <input type="date" id="date_quiz" name="date_quiz" required>
+                <p class="note">Note: Ce champ peut ne pas fonctionner correctement sur d'anciens navigateurs.</p>
+            </div>
+
+            <fieldset>
+                <legend>Question 1: Balises HTML</legend>
+                <p>Quelle balise est utilisée pour créer un lien hypertexte en HTML ?</p>
+
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="q1_a" name="q1" value="a" required>
+                        <label for="q1_a">&lt;link&gt;</label>
+                    </div>
+
+                    <div class="radio-option">
+                        <input type="radio" id="q1_b" name="q1" value="b">
+                        <label for="q1_b">&lt;a&gt;</label>
+                    </div>
+
+                    <div class="radio-option">
+                        <input type="radio" id="q1_c" name="q1" value="c">
+                        <label for="q1_c">&lt;href&gt;</label>
+                    </div>
+
+                    <div class="radio-option">
+                        <input type="radio" id="q1_d" name="q1" value="d">
+                        <label for="q1_d">&lt;url&gt;</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Question 2: Propriétés CSS</legend>
+                <p>Quelles propriétés CSS parmi les suivantes peuvent être utilisées pour centrer un élément horizontalement ? (Plusieurs réponses possibles)</p>
+
+                <div class="checkbox-group">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="q2_a" name="q2[]" value="a">
+                        <label for="q2_a">text-align: center;</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="q2_b" name="q2[]" value="b">
+                        <label for="q2_b">margin: 0 auto;</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="q2_c" name="q2[]" value="c">
+                        <label for="q2_c">display: flex; justify-content: center;</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="q2_d" name="q2[]" value="d">
+                        <label for="q2_d">position: center;</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Question 3: Sélecteurs CSS</legend>
+                <p class="required">Quel est le sélecteur CSS le plus spécifique parmi les suivants ?</p>
+
+                <select name="q3" required>
+                    <option value="">-- Sélectionnez une réponse --</option>
+
+                    <optgroup label="Sélecteurs simples">
+                        <option value="a">Sélecteur d'élément (p)</option>
+                        <option value="b">Sélecteur de classe (.classe)</option>
+                        <option value="c">Sélecteur d'ID (#id)</option>
+                    </optgroup>
+
+                    <optgroup label="Sélecteurs composés">
+                        <option value="d">Sélecteur descendant (div p)</option>
+                        <option value="e">Sélecteur d'enfant direct (div > p)</option>
+                        <option value="f">Sélecteur d'attribut ([type="text"])</option>
+                    </optgroup>
+
+                    <optgroup label="Pseudo-classes et pseudo-éléments">
+                        <option value="g">Pseudo-classe (:hover)</option>
+                        <option value="h">Pseudo-élément (::before)</option>
+                    </optgroup>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Question 4: Écriture de code</legend>
+                <p>Écrivez le code CSS pour créer une grille flexible de 3 colonnes avec un espace de 20px entre chaque élément.</p>
+
+                <div class="form-group">
+                    <label for="code" class="required">Votre code :</label>
+                    <textarea id="code" name="code" placeholder="Écrivez votre code CSS ici..." required></textarea>
+                </div>
+            </fieldset>
+            <button type="submit">Envoyer mes réponses</button>
+        </form>
+    </div>
+</body>
+</html>
